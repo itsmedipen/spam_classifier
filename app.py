@@ -2,6 +2,7 @@
 import streamlit as st
 import pickle
 from nltk.corpus import stopwords
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 from nltk.stem.snowball import SnowballStemmer
 import string
 import nltk
@@ -18,7 +19,7 @@ def transform_text(text):
 
     text = y[:]
     y.clear()
-    stop_words = set(stopwords.words('english'))
+    stop_words = ENGLISH_STOP_WORDS
     for i in text:
         if i not in stop_words and i not in string.punctuation:
             y.append(i)
