@@ -4,16 +4,20 @@ import pickle
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
 import string
-
 import nltk
 
 # Download NLTK data before it's used
-nltk.download('punkt')
-nltk.download('stopwords')
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
 
 snow = SnowballStemmer('english')
-
-
 
 def transform_text(text):
     text = text.lower()#lower
@@ -27,9 +31,9 @@ def transform_text(text):
 
     text = y[:]
     y.clear()
-
+    stop_words = set(stopwords.words('english'))
     for i in text:
-        if i not in stopwords.words('english') and i not in string.punctuation:
+        if i not in stop_words and i not in string.punctuation:
             y.append(i)
 
     text = y[:]
