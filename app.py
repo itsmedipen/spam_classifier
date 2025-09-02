@@ -1,14 +1,15 @@
-import nltk
-# Download required NLTK data files (only if not already present)
-nltk.download('punkt', quiet=True)
-nltk.download('stopwords', quiet=True)
-
 
 import streamlit as st
 import pickle
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
 import string
+
+import nltk
+
+# Download NLTK data before it's used
+nltk.download('punkt')
+nltk.download('stopwords')
 
 snow = SnowballStemmer('english')
 
