@@ -10,10 +10,6 @@ from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
 import string
 
-import nltk
-
-
-
 snow = SnowballStemmer('english')
 
 
