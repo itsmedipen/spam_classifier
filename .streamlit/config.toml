@@ -1,0 +1,5 @@
+[tool.nltk]
+nltk_data_path = "/usr/share/nltk_data"
+
+[tool.nltk.download]
+packages = ["punkt", "stopwords"]

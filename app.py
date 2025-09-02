@@ -6,14 +6,8 @@ from nltk.stem.snowball import SnowballStemmer
 import string
 import nltk
 
-# Download NLTK data before it's used
-from nltk.tokenize import word_tokenize, PunktSentenceTokenizer
-
 # Force load the standard punkt
-try:
-    nltk.data.find('tokenizers/punkt/english.pickle')
-except LookupError:
-    nltk.download('punkt')
+
 snow = SnowballStemmer('english')
 
 def transform_text(text):
