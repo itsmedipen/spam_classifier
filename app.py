@@ -7,16 +7,13 @@ import string
 import nltk
 
 # Download NLTK data before it's used
+from nltk.tokenize import word_tokenize, PunktSentenceTokenizer
+
+# Force load the standard punkt
 try:
-    nltk.data.find('tokenizers/punkt')
+    nltk.data.find('tokenizers/punkt/english.pickle')
 except LookupError:
     nltk.download('punkt')
-
-try:
-    nltk.data.find('corpora/stopwords')
-except LookupError:
-    nltk.download('stopwords')
-
 snow = SnowballStemmer('english')
 
 def transform_text(text):
