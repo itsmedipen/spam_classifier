@@ -6,7 +6,12 @@ from nltk.stem.snowball import SnowballStemmer
 import string
 import nltk
 
-# Force load the standard punkt
+@st.cache_resource
+def download_nltk_data():
+    nltk.download('punkt')
+    nltk.download('stopwords')
+
+download_nltk_data()
 
 snow = SnowballStemmer('english')
 
